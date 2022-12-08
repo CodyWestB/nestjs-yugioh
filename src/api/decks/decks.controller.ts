@@ -12,6 +12,7 @@ export class DecksController {
 
   @Get(':deckId')
   getAllCardsByDeckId(@Param('deckId', ParseIntPipe) deckId: number) {
-    return this.deckService.getCardById(deckId);
+    return this.deckService.getAllCardsByDeckId(deckId);
+    // return this.deckService.getCardById(deckId);
   }
 }

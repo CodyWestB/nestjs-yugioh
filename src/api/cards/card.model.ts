@@ -1,4 +1,4 @@
-import { MonsterCardRace, SpellCardType, TrapCardType } from '../enums';
+import { MonsterCardRace, SpellCardType, TrapCardType } from '../../enums';
 
 export interface ICard<T> {
   id: number;
@@ -42,30 +42,18 @@ export class MonsterCard implements ICard<MonsterCardRace> {
   def: number;
   level?: number;
 
-  constructor(
-    id: number,
-    name: string,
-    race: string,
-    archetype: string,
-    type: MonsterCardRace,
-    description: string,
-    image: CardImage,
-    attribute: string,
-    atk: number,
-    def: number,
-    level?: number,
-  ) {
-    this.id = id;
-    this.name = name;
-    this.race = race;
-    this.archetype = archetype;
-    this.type = type;
-    this.description = description;
-    this.image = image;
-    this.attribute = attribute;
-    this.atk = atk;
-    this.def = def;
-    this.level = level;
+  constructor(card: any) {
+    this.id = card.id;
+    this.name = card.name;
+    this.race = card.race;
+    this.archetype = card.archetype;
+    this.type = card.type;
+    this.description = card.desc;
+    this.image = card.card_images[0];
+    this.attribute = card.attribute;
+    this.atk = card.atk;
+    this.def = card.def;
+    this.level = card.level;
   }
 }
 
@@ -87,22 +75,14 @@ export class SpellCard implements ICard<SpellCardType> {
   description: string;
   image: CardImage;
 
-  constructor(
-    id: number,
-    name: string,
-    race: string,
-    archetype: string,
-    type: SpellCardType,
-    description: string,
-    image: CardImage,
-  ) {
-    this.id = id;
-    this.name = name;
-    this.race = race;
-    this.archetype = archetype;
-    this.type = type;
-    this.description = description;
-    this.image = image;
+  constructor(card: any) {
+    this.id = card.id;
+    this.name = card.name;
+    this.race = card.race;
+    this.archetype = card.archetype;
+    this.type = card.type;
+    this.description = card.desc;
+    this.image = card.card_images[0];
   }
 }
 
@@ -124,20 +104,13 @@ export class TrapCard implements ICard<TrapCardType> {
   description: string;
   image: CardImage;
 
-  constructor(
-    id: number,
-    name: string,
-    race: string,
-    type: TrapCardType,
-    description: string,
-    image: CardImage,
-  ) {
-    this.id = id;
-    this.name = name;
-    this.race = race;
-    this.type = type;
-    this.description = description;
-    this.image = image;
+  constructor(card: any) {
+    this.id = card.id;
+    this.name = card.name;
+    this.race = card.race;
+    this.type = card.type;
+    this.description = card.desc;
+    this.image = card.card_images[0];
   }
 }
 
